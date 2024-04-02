@@ -1,0 +1,10 @@
+# IDEs and Editors
+.vscode/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Environment configs
+.env
+

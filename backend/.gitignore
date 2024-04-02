@@ -1,8 +1,8 @@
-__pycache__
-app.egg-info
+__pycache__/
 *.pyc
-.mypy_cache
+.mypy_cache/
 .coverage
-htmlcov
+htmlcov/
 .cache
 .venv
+*.egg-info/
