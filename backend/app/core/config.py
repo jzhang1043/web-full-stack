@@ -5,6 +5,9 @@ from functools import lru_cache
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", env_ignore_empty=True, extra="ignore")
 
+    # api version
+    API_V1_STR: str = "/api/v1"
+
     # MongoDB settings
     MONGODB_USERNAME: str
     MONGODB_PASSWORD: str
