@@ -10,12 +10,14 @@ python = "3.12.2"
 fastapi = "^0.110.0"
 uvicorn = "^0.29.0"
 gunicorn = "^21.2.0"
-pydantic = "^2.6.4"
+pydantic = {extras = ["email"], version = "^2.6.4"}
 bcrypt = "^4.1.2"
-python-jose = "^3.3.0"
 motor = "^3.4.0"
+pydantic-settings = "^2.2.1"
+beanie = "^1.25.0"
 pymongo = "^4.6.3"
-bson = "^0.5.10"
+python-dotenv = "^1.0.1"
+pyjwt = "^2.8.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.1.1"
