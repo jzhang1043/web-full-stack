@@ -1,4 +1,4 @@
-name: FARM
+name: backend
 channels:
   - conda-forge
   - nodefaults
