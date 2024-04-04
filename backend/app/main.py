@@ -23,10 +23,10 @@ async def read_root():
 
 # app.add_middleware(
 #     CORSMiddleware,
-#     allow_origins=['*'],
+#     allow_origins=["*"],  # Adjust this in production
 #     allow_credentials=True,
-#     allow_methods=['*'],
-#     allow_headers=['*'],
+#     allow_methods=["*"],
+#     allow_headers=["*"],
 # )
 
 app.include_router(api_router, prefix=get_settings().API_V1_STR)
