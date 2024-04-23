@@ -17,6 +17,7 @@ const router = createRouter({
   defaultPreloadStaleTime: 0,
 })
 
+// To register a route tree with a router instance
 declare module "@tanstack/react-router" {
   interface Register {
     router: typeof router
