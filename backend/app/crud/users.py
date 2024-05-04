@@ -7,7 +7,7 @@ async def create_user(*, user: User = Body(...)) -> User:
     user_exists = await User.find_one(User.email==user.email)
     if user_exists:
         raise HTTPException(status_code=status.HTTP_409_CONFLICT,
-                            detail="Email already registered")
+                            detail="Email already existed")
     user.password = security.hash_password(password=user.password)
     new_user = await user.insert()
     return new_user

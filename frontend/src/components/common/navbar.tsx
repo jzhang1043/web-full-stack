@@ -44,7 +44,7 @@ export default function Navbar() {
         borderBottom={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.700")}
-        align={"center"}
+        alignItems={"center"}
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
@@ -240,12 +240,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           textDecoration: "none",
         }}
       >
-        <Text
-          fontWeight={600}
-          // color={useColorModeValue("gray.600", "red.100")}
-        >
-          {label}
-        </Text>
+        <Text fontWeight={600}>{label}</Text>
         {children && (
           <Icon
             as={ChevronDownIcon}

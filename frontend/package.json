@@ -17,15 +17,20 @@
     "@tanstack/react-query": "^5.29.0",
     "@tanstack/react-router": "^1.26.16",
     "axios": "^1.6.8",
+    "bluebird": "^3.7.2",
+    "formik": "^2.4.6",
     "framer-motion": "^11.0.25",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.3",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.6.4",
     "@tanstack/react-query-devtools": "^5.29.0",
     "@tanstack/router-devtools": "^1.26.16",
     "@tanstack/router-vite-plugin": "^1.26.16",
+    "@types/bluebird": "^3.5.42",
     "@types/node": "^20.12.7",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",

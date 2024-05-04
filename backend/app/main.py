@@ -21,12 +21,12 @@ async def read_root():
     return {"message": "Welcome to this fantastic app."}
 
 
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=["*"],  # Adjust this in production
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # Adjust this in production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 app.include_router(api_router, prefix=get_settings().API_V1_STR)

@@ -1,6 +1,7 @@
 import { Box, Flex, Heading } from "@chakra-ui/react"
 import { createFileRoute } from "@tanstack/react-router"
 import Navbar from "../components/common/navbar"
+
 // the route path depends on the file's name and directory.
 // Since index.tsx is under _layout, this route path becomes /_layout/ when running the server.
 export const Route = createFileRoute("/")({

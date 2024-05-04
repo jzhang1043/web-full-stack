@@ -7,11 +7,15 @@ async def authenticate_user(*, email: str, password: str) -> User:
     """
     login_for_access_token: verify the user's credential and return the user's record in database
     """
-    user = await users.read_user_by_email(email=email)
-    if not security.verify_password(plain_password=password, hashed_password=user.password):
-        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
+    authError =  HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
                             detail="Incorrect username or password",
                             headers={"WWW-Authenticate": "Bearer"})
+    try:
+        user = await users.read_user_by_email(email=email)
+    except Exception as e:
+        raise authError
+    if not security.verify_password(plain_password=password, hashed_password=user.password):
+        raise authError
     return user
 
 async def sign_jwt(*, email: str, password: str) -> str:

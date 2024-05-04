@@ -8,7 +8,7 @@ const theme = extendTheme({
     global: {
       // Applies styles globally across all color modes
       body: {
-        bg: "gray.100", // Light mode background
+        bg: "gray.50", // Light mode background
         color: "black", // Text color for light mode
       },
       // Specific styles for the dark mode

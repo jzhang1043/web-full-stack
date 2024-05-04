@@ -10,49 +10,74 @@
 
 // Import Routes
 
-import { Route as rootRoute } from './routes/__root'
-import { Route as LoginImport } from './routes/login'
-import { Route as LayoutImport } from './routes/_layout'
-import { Route as IndexImport } from './routes/index'
+import { Route as rootRoute } from "./routes/__root"
+import { Route as DashboardImport } from "./routes/_dashboard"
+import { Route as DashboardSummaryImport } from "./routes/_dashboard/summary"
+import { Route as IndexImport } from "./routes/index"
+import { Route as LoginImport } from "./routes/login"
+import { Route as RegisterImport } from "./routes/register"
 
 // Create/Update Routes
 
-const LoginRoute = LoginImport.update({
-  path: '/login',
+const RegisterRoute = RegisterImport.update({
+  path: "/register",
   getParentRoute: () => rootRoute,
 } as any)
 
-const LayoutRoute = LayoutImport.update({
-  id: '/_layout',
+const LoginRoute = LoginImport.update({
+  path: "/login",
+  getParentRoute: () => rootRoute,
+} as any)
+
+const DashboardRoute = DashboardImport.update({
+  id: "/_dashboard",
   getParentRoute: () => rootRoute,
 } as any)
 
 const IndexRoute = IndexImport.update({
-  path: '/',
+  path: "/",
   getParentRoute: () => rootRoute,
+} as any)
+
+const DashboardSummaryRoute = DashboardSummaryImport.update({
+  path: "/summary",
+  getParentRoute: () => DashboardRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface FileRoutesByPath {
-    '/': {
+    "/": {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/_layout': {
-      preLoaderRoute: typeof LayoutImport
+    "/_dashboard": {
+      preLoaderRoute: typeof DashboardImport
       parentRoute: typeof rootRoute
     }
-    '/login': {
+    "/login": {
       preLoaderRoute: typeof LoginImport
       parentRoute: typeof rootRoute
+    }
+    "/register": {
+      preLoaderRoute: typeof RegisterImport
+      parentRoute: typeof rootRoute
+    }
+    "/_dashboard/summary": {
+      preLoaderRoute: typeof DashboardSummaryImport
+      parentRoute: typeof DashboardImport
     }
   }
 }
 
 // Create and export the route tree
 
-export const routeTree = rootRoute.addChildren([IndexRoute, LoginRoute])
+export const routeTree = rootRoute.addChildren([
+  IndexRoute,
+  DashboardRoute.addChildren([DashboardSummaryRoute]),
+  LoginRoute,
+  RegisterRoute,
+])
 
 /* prettier-ignore-end */
